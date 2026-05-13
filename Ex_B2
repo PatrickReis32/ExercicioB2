@@ -1,0 +1,50 @@
+42)Um comerciante deseja fazer o levantamento do lucro das mercadorias que ele comercializa. Para
+isto, mandou digitar uma linha para cada mercadoria com o nome, preço de compra e preço de
+venda das mesmas. Fazer um algoritmo que:
+• Determine e escreva quantas mercadorias proporcionam:
+lucro < 10%
+10% >= lucro < 20%
+lucro > 20%
+• Determine e escreva o valor total de compra e de venda de todas as mercadorias,
+assim como o lucro total.
+Observação: o aluno deve adotar um flag.
+
+#include<stdio.h>
+int main(){
+	char nome[50];
+	float compra, venda, lucro, totalCompra = 0, totalVenda = 0, lucroTotal = 0;
+	int menor10 = 0, entre10e20 = 0, maior20 = 0;
+	char continuar = 's';
+		while (continuar == 's'){
+			printf("\nNome do produto: ");
+				scanf("%s", nome);
+					printf("\npreco do produto: ");
+						scanf("%f", &compra);
+							printf("\nVenda do produto: ");
+								scanf("%f", &venda);
+									lucro = ((venda - compra) / compra) * 100;
+										if(lucro <= 10){
+											menor10++;
+										}
+											else if(lucro >= 11 && lucro <= 20){
+												entre10e20++;												
+											}
+												else{
+													maior20++;
+												}
+													totalCompra += compra;
+												    totalVenda += venda;
+												    lucroTotal += (venda - compra);
+														printf("Deseja continuar? (s/n): ");
+        													scanf(" %c", &continuar);
+			}
+																printf("\nLucro menor que 10%%: %d\n", menor10);
+													   				 printf("Lucro entre 10%% e 20%%: %d\n", entre10e20);
+																	    printf("Lucro maior que 20%%: %d\n", maior20);																	
+																	    	printf("\nValor total de compra: R$ %.2f\n", totalCompra);
+																	    		printf("Valor total de venda: R$ %.2f\n", totalVenda);
+																	    			printf("Lucro total: R$ %.2f\n", lucroTotal);
+																	
+		
+	
+}
